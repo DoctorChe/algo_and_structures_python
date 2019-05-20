@@ -9,3 +9,66 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+# Расчёт через цикл
+print("\nРасчёт через цикл")
+while True:
+    sign = input("Введите знак операции: ")
+    if sign == "0":
+        print("Завершение программы")
+        break
+    elif sign != "+" and sign != "-" and sign != "*" and sign != "/":
+        print("Введён неверный знак операции")
+        continue
+    else:
+        a = float(input("Введите первое число: "))
+        b = float(input("Введите второе число: "))
+        if sign == "/" and b == 0:
+            print("Деление на ноль невозможно")
+            continue
+        if sign == "+":
+            result = a + b
+        elif sign == "-":
+            result = a - b
+        elif sign == "*":
+            result = a * b
+        elif sign == "/":
+            result = a / b
+        if b >= 0:
+            print(f"Результат операции {a} {sign} {b} = {result}")
+        else:
+            print(f"Результат операции {a} {sign} ({b}) = {result}")
+
+
+# Расчёт через рекурсию
+def calc():
+    sign = input("Введите знак операции: ")
+    if sign == "0":
+        print("Завершение программы")
+        return
+    elif sign != "+" and sign != "-" and sign != "*" and sign != "/":
+        print("Введён неверный знак операции")
+    else:
+        a = float(input("Введите первое число: "))
+        b = float(input("Введите второе число: "))
+        result = None
+        if sign == "/" and b == 0:
+            print("Деление на ноль невозможно")
+        elif sign == "/" and b != 0:
+            result = a / b
+        elif sign == "+":
+            result = a + b
+        elif sign == "-":
+            result = a - b
+        elif sign == "*":
+            result = a * b
+        if result is not None:
+            if b >= 0:
+                print(f"Результат операции {a} {sign} {b} = {result}")
+            else:
+                print(f"Результат операции {a} {sign} ({b}) = {result}")
+    calc()
+
+
+print("\nРасчёт через рекурсию")
+calc()
