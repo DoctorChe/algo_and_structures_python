@@ -8,7 +8,6 @@
 # Расчёт через цикл
 def count_digit(number, my_digit):
     count = 0
-    number = input_number
     while number:
         digit = number % 10
         if my_digit == digit:
