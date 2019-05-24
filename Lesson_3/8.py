@@ -4,3 +4,20 @@
 записывать ее в последнюю ячейку строки.
 В конце следует вывести полученную матрицу.
 """
+
+m = []
+for i in range(5):
+    z = []
+    sum_z = 0
+    for j in range(4):
+        n = int(input(f"Введите элемент матрицы ({i}, {j}): "))
+        sum_z += n
+        z.append(n)
+    z.append(sum_z)
+    m.append(z)
+
+
+for i in range(5):
+    for j in range(5):
+        print(m[i][j], end=" ")
+    print()
