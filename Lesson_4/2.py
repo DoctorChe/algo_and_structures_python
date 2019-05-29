@@ -7,11 +7,12 @@
 import timeit
 import cProfile
 
-n = 10
+n = 1
 
 
+# Вариант 1 (Решето Эратосфена)
 def eratosthenes(n):
-    max_number = 100
+    max_number = 10000
     a = list(range(max_number + 1))
     a[1] = 0
     primes = []
@@ -26,6 +27,7 @@ def eratosthenes(n):
     return primes
 
 
+# Вариант 2
 def is_prime(n):
     for j in range(3, int(n ** 0.5) + 1):
         if n % j == 0:
@@ -45,12 +47,11 @@ def search_primes(n):
 
 print(timeit.timeit("eratosthenes(n)",
                     setup="from __main__ import eratosthenes, n",
-                    number=100000))
+                    number=1000))
 
-# Вариант 2
 print(timeit.timeit("search_primes(n)",
                     setup="from __main__ import search_primes, is_prime, n",
-                    number=100000))
+                    number=1000))
 
 
 def main():
@@ -64,9 +65,15 @@ cProfile.run("main()")
 Согласно замерам скорости алгоритмов практически равны
 
 Вариант 1 (Решето Эратосфена)
-1.7685222373585983
+1       0.5323531484536379
+10      1.1358938288516052
+100     1.5968808650130994
+1000    3.6435655995407545
 
 Вариант 2
-1.7270139381619358
+1       0.0002637652263693946
+10      0.01717826629271979
+100     0.4012091463243581
+1000    8.843595431353647
 
 """
