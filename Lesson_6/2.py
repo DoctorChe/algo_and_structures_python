@@ -24,6 +24,7 @@ class Person:
 class PersonSlot:
     """Класс для сущности человек"""
     __slots__ = ("firstname", "lastname")
+
     def __init__(self, firstname, lastname):
         self.firstname = firstname
         self.lastname = lastname
@@ -33,31 +34,16 @@ class PersonSlot:
         print('name:', self.firstname, self.lastname)
 
 
-# class MyResume:
-#     def __init__(self, name, address):
-#         self.name = name
-#         self.address = address
-#
-#
-#
-# class MyResumeSlots:
-#     __slots__ = ('name', 'address')
-#     def __init__(self, name, address):
-#         self.name = name
-#         self.address = address
-
-
 mr = Person("иван", "иванов")
 print(mr.__dict__)
-print(asizeof.asizeof(mr))
-#mr.surname = 'фамилия'
-#print(mr.__dict__)
-#print(asizeof.asizeof(mr))
 
 mrs = PersonSlot("иванов", "иванов")
 print(mrs.__slots__)
 
-#mrs.surname = 'фамилия'
-
 print(asizeof.asizeof(mr))
 print(asizeof.asizeof(mrs))
+
+"""
+На объекта обычного класса выделено 472 байта памяти
+На объекта класса с применением слотов выделено 144 байта памяти. Экономия более чем в 3 раза.
+"""
