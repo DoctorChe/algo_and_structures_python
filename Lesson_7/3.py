@@ -34,6 +34,7 @@ def select_nth(n, items):
     return select_nth(n, greater)
 
 
-lst = [random.randint(0, 50) for i in range(20)]
+m = 10
+lst = [random.randint(0, 50) for i in range(2*m + 1)]
 print(lst)
 print(median(lst))
