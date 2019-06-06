@@ -4,3 +4,23 @@
 исходный и отсортированный массивы. Сортировка должна быть реализована в
 виде функции. По возможности доработайте алгоритм (сделайте его умнее).
 """
+
+from random import randint
+
+
+def bubble_sort(a):
+    n = len(a)
+    m = n - 1
+    while m > 0:
+        for i in range(m):
+            if a[i] > a[i + 1]:
+                x = a[i]
+                a[i] = a[i + 1]
+                a[i + 1] = x
+        m = m - 1
+    return a
+
+
+lst = [randint(-100, 100) for i in range(20)]
+print(lst)
+print(bubble_sort(lst))
